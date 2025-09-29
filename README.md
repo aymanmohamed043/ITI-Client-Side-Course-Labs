@@ -12,13 +12,13 @@ The goal is to strengthen my frontend skills through structured exercises.
 ---
 
 ## 📂 Repository Structure
-Frontend-Labs/
-├── html-css-labs/ # Labs for HTML & CSS practice
-│ ├── lab1/ Basic HTML structure
-│ ├── lab2/ CSS selectors & styling
-│ └── 
-│
-└── js-labs/ # Labs for JavaScript practice
+Frontend-Labs/ <br>
+├── html-css-labs/ # Labs for HTML & CSS practice <br>
+│ ├── lab1/ Basic HTML structure <br>
+│ ├── lab2/ CSS selectors & styling <br>
+│ └── <br>
+│<br>
+└── js-labs/ # Labs for JavaScript practice <br>
 ├── lab1/ introduction to js basics and vars 
 ├── lab2/ strings-arrays-date-math
 ├── lab3/ Dom and Bom
