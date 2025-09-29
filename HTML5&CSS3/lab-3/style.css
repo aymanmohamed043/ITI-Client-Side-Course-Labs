@@ -1,0 +1,199 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin:  auto;
+    max-width: 1000px; 
+    border-radius: 10px;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    background-color: yellow;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;  
+    padding: 30px;
+    margin: 50px 0px;
+    border-radius: 20px;
+
+
+}
+
+.header img {
+    margin: 0px auto;
+}
+
+.header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container .contacts {
+    grid-column: 1/1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: start;
+    align-items: start;
+}
+.container .contacts h2,
+.container .languages h2,
+.container .skills h2,
+.container .social-info h2{
+    padding-left: 100px;
+    font-size: 34px;
+} 
+.container .contacts p {
+    padding-top: 10px;
+    padding-left: 100px;
+    font-size: 20px;
+}
+
+
+.container .achievements {
+    grid-column: 2/-1;
+}
+
+.container .achievements h2,
+.container .education h2,
+.container .experience h2{
+    background-color: yellow;
+    border: 1px solid yellow;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+}
+
+.container .achievements .achievement,
+.container .education .level,
+.container .experience .company{
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.container .achievements .achievement .date,
+.container .education .level .date,
+.container .experience .company .date{
+    font-weight: bold;
+    font-size: large;
+    padding-bottom: 5px;
+}
+
+
+.container .languages div{
+    margin-bottom: 14px;
+}
+
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 15px;
+    background: conic-gradient(orange 0% 70%, #ddd 70%);
+}
+
+.circle.blue {
+    background: conic-gradient(deepskyblue 0% 60%, #ddd 60%);
+}
+
+.circle.red {
+    background: conic-gradient(crimson 0% 80%, #ddd 80%);
+}
+
+.circle.orange {
+    background: conic-gradient(rgb(46, 202, 72) 0% 40%, #ddd 40%);
+}
+
+.circle span {
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.social-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-top: 20px;
+}
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 40px;
+    color: #333;
+    text-decoration: none;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.google {
+    background-color: #dd4b39;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    margin: 50px 0px;
+    border: 1px solid black;
+
+}
+.footer div{
+    width:33.33%;
+}
+
+.footer .div-1 {
+    background-color: rgb(181, 74, 74);
+}
+.footer .div-2 {
+    background-color: rgb(205, 139, 33);
+}
+.footer .div-3 {
+    background-color: rgb(51, 89, 159);
+}
+
+
+
+
+
