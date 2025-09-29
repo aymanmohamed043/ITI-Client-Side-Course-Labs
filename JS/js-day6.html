@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 30px auto;
+            font-family: Arial, sans-serif;
+            }
+            th, td {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            text-align: center;
+            }
+            th {
+            background: #f4f4f4;
+            position: relative;
+            }
+            th div {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+            }
+            th button {
+            padding: 2px 6px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            background: #ddd;
+            }
+            th button:hover {
+            background: #bbb;
+            }
+            tr:nth-child(even) {
+            background: #f9f9f9;
+            }
+            .linkedlist-section {
+            width: 80%;
+            margin: 40px auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            }
+            .linkedlist-section button {
+            padding: 8px 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+            }
+            .linkedlist-section button:hover {
+            background: #388e3c;
+            }
+            .list-display {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            min-height: 40px;
+            }
+            .node {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background: #eee;
+            }
+    </style>
+</head>
+<body>
+    <table>
+    <thead>
+        <tr>
+        <th>Name<div><button data-key="name" data-order="asc">↑</button><button data-key="name" data-order="desc">↓</button></div></th>
+        <th>Position<div><button data-key="position" data-order="asc">↑</button><button data-key="position" data-order="desc">↓</button></div></th>
+        <th>Office<div><button data-key="office" data-order="asc">↑</button><button data-key="office" data-order="desc">↓</button></div></th>
+        <th>Age<div><button data-key="age" data-order="asc">↑</button><button data-key="age" data-order="desc">↓</button></div></th>
+        <th>Start Date<div><button data-key="startDate" data-order="asc">↑</button><button data-key="startDate" data-order="desc">↓</button></div></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    </table>
+
+    <hr>
+
+    <div class="linkedlist-section">
+    <h2>Linked List</h2>
+    <button id="pushBtn">Push</button>
+    <button id="popBtn">Pop</button>
+    <div class="list-display" id="listDisplay"></div>
+    </div>
+
+<script>
+    function Person(name, position, office, age, startDate) {
+        this.name = name
+        this.position = position
+        this.office = office
+        this.age = age
+        this.startDate = startDate
+    }
+
+    let arr = []
+    arr.push(new Person("ayman", "full stack", "alex", 24, "1/2/2015"))
+    arr.push(new Person("ahmed", "sw", "usa", 23, "2/3/2020"))
+    arr.push(new Person("ali", "front end", "emar", 22, "7/9/2021"))
+    arr.push(new Person("mohemed", "back enf", "london", 18, "8/9/2027"))
+    arr.push(new Person("kareem", "python dev", "cairo", 53, "1/4/2022"))
+    arr.push(new Person("mazen", "accuntant", "qena", 40, "12/2/2025"))
+    arr.push(new Person("omar", "manger", "miya", 39, "24/2/2018"))
+    arr.push(new Person("samy", "java dev", "menof", 28, "29/5/2006"))
+
+    addRows(arr);
+
+    document.querySelectorAll("th button").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+        sortRecords(btn.dataset.key, btn.dataset.order)
+        })
+    })
+
+    function sortRecords(atr, order) {
+        arr.sort((a,b)=>{
+        if (a[atr] > b[atr]) return order==="asc"?1:-1
+        if (a[atr] < b[atr]) return order==="asc"?-1:1
+        return 0
+        })
+        document.querySelector("tbody").innerHTML="";
+        addRows(arr);
+    }
+
+    function addRows(arr){
+        const tableBody = document.querySelector("tbody")
+        for(let i = 0; i < arr.length;i++){
+        const tr = document.createElement('tr')
+        const tdName = document.createElement('td')
+        tdName.innerText = arr[i].name
+        tr.append(tdName)
+        const tdPosition = document.createElement('td')
+        tdPosition.innerText = arr[i].position
+        tr.append(tdPosition)
+        const tdOffice = document.createElement('td')
+        tdOffice.innerText = arr[i].office
+        tr.append(tdOffice)
+        const tdAge = document.createElement('td')
+        tdAge.innerText = arr[i].age
+        tr.append(tdAge)
+        const tdDate = document.createElement('td')
+        tdDate.innerText = arr[i].startDate
+        tr.append(tdDate)
+        tableBody.append(tr);
+    }
+    }
+
+    function Node(value) {
+        this.value = value
+        this.next = null
+    }
+
+    function LinkedList() {
+        this.head = null
+    }
+
+    LinkedList.prototype.push = function(value) {
+        let newNode = new Node(value)
+        if (!this.head) {
+        this.head = newNode
+        } else {
+        let current = this.head
+        while (current.next) current = current.next
+        current.next = newNode
+        }
+    }
+
+    LinkedList.prototype.pop = function() {
+        if (!this.head) return null
+        if (!this.head.next) {
+        let val = this.head.value
+        this.head = null
+        return val
+        }
+        let current = this.head
+        while (current.next.next) current = current.next
+        let val = current.next.value
+        current.next = null
+        return val
+    }
+
+    LinkedList.prototype.toArray = function() {
+        let arr = []
+        let current = this.head
+        while (current) {
+        arr.push(current.value)
+        current = current.next
+        }
+        return arr
+    }
+
+    let list = new LinkedList()
+    let display = document.getElementById("listDisplay")
+
+    function renderList() {
+        display.innerHTML = ""
+        list.toArray().forEach(val=>{
+        let div = document.createElement("div")
+        div.className = "node"
+        div.innerText = val
+        display.appendChild(div)
+    })
+    }
+
+    document.getElementById("pushBtn").addEventListener("click", ()=>{
+    let val = prompt("Enter value to push:")
+    if (val) {
+    list.push(val)
+    renderList()
+    }
+})
+
+    document.getElementById("popBtn").addEventListener("click", ()=>{
+        list.pop()
+        renderList()
+    })
+    </script>
+</body>
+</html>
