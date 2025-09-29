@@ -19,11 +19,11 @@ Frontend-Labs/ <br>
 │ └── <br>
 │<br>
 └── js-labs/ # Labs for JavaScript practice <br>
-├── lab1/ introduction to js basics and vars 
-├── lab2/ strings-arrays-date-math
-├── lab3/ Dom and Bom
-├── lab4/ Events
-├── lab5/ Functions and Clusres 
-├── lab6/ Objcts
-├── lab7/ Destructure
-├── lab8/ Promises
+├── lab1/ introduction to js basics and vars <br>
+├── lab2/ strings-arrays-date-math <br>
+├── lab3/ Dom and Bom <br>
+├── lab4/ Events <br>
+├── lab5/ Functions and Clusres <br>
+├── lab6/ Objcts <br>
+├── lab7/ Destructure <br>
+├── lab8/ Promises <br>
